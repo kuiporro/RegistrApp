@@ -1,0 +1,70 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Crear Asignatura</ion-title>
+    <ion-button slot="end" (click)="dataToPage('home')"  [routerLink]="['/home']" id="button-home" size="medium"><ion-icon name="home-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br><br><br><br>
+  <ion-grid fixed="true">
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="p-5">
+          <img src="./././assets/images/logo.png" width="250" class="m-5 rounded mx-auto d-block" alt="">
+
+          <form [formGroup]="subjectFormRaw" (ngSubmit)="onSubmit()">
+            
+            <ion-item>
+              <ion-label position="floating">Nombre Asignatura</ion-label>
+              <ion-input placeholder="Ingrese el nombre" formControlName="name" type="text" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Codigo</ion-label>
+              <ion-input placeholder="Ingrese el Codigo (PGY4121)" formControlName="code" type="text" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Dias a la semana</ion-label>
+              <ion-input placeholder="Ingrese la cantidad de dias" formControlName="dayNumber" type="number" required>
+              </ion-input>
+            </ion-item>
+
+            <div *ngIf="daysNumber >= 1;">
+                <ion-list *ngFor="let number of numberCollection">
+                  <ion-item>
+                    <h4>Dia {{number+1}}</h4>
+                    <ion-select formControlName="weekDay{{number+1}}" placeholder="Dia">
+                      <ion-select-option value="Lunes">Lunes</ion-select-option>
+                      <ion-select-option value="Martes">Martes</ion-select-option>
+                      <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+                      <ion-select-option value="Jueves">Jueves</ion-select-option>
+                      <ion-select-option value="Viernes">Viernes</ion-select-option>
+                      <ion-select-option value="Sabado">Sabado</ion-select-option>
+                    </ion-select>
+                    <ion-label position="floating">Desde Las</ion-label>
+                    <ion-input type="time" formControlName="start{{number+1}}" required></ion-input>
+                    <ion-label position="floating">Hasta Las</ion-label>
+                    <ion-input type="time" formControlName="end{{number+1}}" required></ion-input>
+                    <ion-label position="floating">Sala</ion-label>
+                    <ion-input type="number" formControlName="room{{number+1}}" required></ion-input>   
+                  </ion-item>
+                </ion-list>
+            </div>
+            <ion-row>
+              <ion-col>
+                <ion-button (click)="genForm()" color="warning" class="mb-5" expand="block">Definir Dias</ion-button>
+              </ion-col>
+
+              <ion-col *ngIf="daysNumber >= 1;">
+                <ion-button type="submit" color="warning" class="mb-5" expand="block" routerLink="/home">Crear Asignatura</ion-button>
+              </ion-col>
+
+            </ion-row>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

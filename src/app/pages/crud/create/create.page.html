@@ -1,0 +1,100 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesion</ion-title>
+    <ion-button slot="end" (click)="dataToPageHome()"  [routerLink]="['/home']" id="button-home" size="medium"><ion-icon name="home-outline"></ion-icon></ion-button>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <br><br><br><br>
+  <ion-grid fixed="true">
+    <ion-row>
+      <ion-col size="12">
+        <ion-card class="p-5">
+          <img src="./././assets/images/logo.png" width="250" class="m-5 rounded mx-auto d-block" alt="">
+
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            
+            <ion-item>
+              <ion-label position="floating">Rut</ion-label>
+              <ion-input placeholder="Ingrese el rut (xxxxxxxx-x)" formControlName="rut" type="text" required></ion-input>
+            </ion-item>
+
+
+            <ion-item>
+              <ion-label position="floating">Nombre</ion-label>
+              <ion-input placeholder="Ingrese el Nombre"  formControlName="name" type="text" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Apellido</ion-label>
+              <ion-input placeholder="Ingrese el Apellido"  formControlName="suname" type="text" required>
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Username</ion-label>
+              <ion-input placeholder="Ingrese el Nombre de Usuario"  formControlName="username" type="text" required>
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label position="floating">Email</ion-label>
+              <ion-input placeholder="Ingrese el Email"  formControlName="email" type="text" required>
+              </ion-input>
+            </ion-item>
+      
+            <ion-item>
+              <ion-label position="floating">Contraseña</ion-label>
+              <ion-input placeholder="Ingrese la contraseña"  formControlName="password" type="password" required>
+              </ion-input>
+            </ion-item>
+      
+            <ion-list>
+              <ion-label>¿Es Profesor?</ion-label>
+              <ion-radio-group position="floating" formControlName="teacher" required>
+                
+                <ion-item>
+                  <ion-label>Si</ion-label>
+                  <ion-radio slot="end" value="true"></ion-radio>
+                </ion-item>
+      
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio slot="end" value="false"></ion-radio>
+                </ion-item>
+              
+              </ion-radio-group>
+            </ion-list>
+
+            <ion-list>
+              <ion-label>¿Es Admin?</ion-label>
+              <ion-radio-group position="floating" formControlName="isAdmin" required>
+                
+                <ion-item>
+                  <ion-label >Si</ion-label>
+                  <ion-radio slot="end" value="true"></ion-radio>
+                </ion-item>
+      
+                <ion-item>
+                  <ion-label>No</ion-label>
+                  <ion-radio slot="end" value="false"></ion-radio>
+                </ion-item>
+              
+              </ion-radio-group>
+            </ion-list>
+
+            <ion-row>
+              <ion-col>
+                <ion-button type="submit" color="warning" class="mb-5" expand="block">Crear Usuario</ion-button>
+              </ion-col>
+            </ion-row>
+          </form>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

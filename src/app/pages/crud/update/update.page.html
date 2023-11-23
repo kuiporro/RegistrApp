@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update User</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="updateUserFg" (ngSubmit)="onSubmit()">
+      
+      <ion-item>
+        <ion-label position="floating">Rut</ion-label>
+        <ion-input formControlName="rut" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="suname" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Username</ion-label>
+        <ion-input formControlName="username" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="text" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input formControlName="password" type="password" required>
+        </ion-input>
+      </ion-item>
+
+      <ion-list *ngIf="data.isAdmin == 'true';">
+        <ion-label position="floating">¿Es Admin?</ion-label>
+        <ion-radio-group formControlName="isAdmin" required>
+          
+          <ion-item>
+            <ion-label>Si</ion-label>
+            <ion-radio slot="end" value="true"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio slot="end" value="false"></ion-radio>
+          </ion-item>
+        
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-list *ngIf="data.isAdmin == 'true';">
+        <ion-label  position="floating">¿Es Profesor?</ion-label>
+        <ion-radio-group formControlName="teacher" required>
+          
+          <ion-item>
+            <ion-label>Si</ion-label>
+            <ion-radio slot="end" value="true"></ion-radio>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>No</ion-label>
+            <ion-radio slot="end" value="false"></ion-radio>
+          </ion-item>
+        
+        </ion-radio-group>
+      </ion-list>
+
+      <ion-row>
+        <ion-col>
+          <ion-button type="submit" color="success" expand="block">Update</ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </ion-list>
+</ion-content>

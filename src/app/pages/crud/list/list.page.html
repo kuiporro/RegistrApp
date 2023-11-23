@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Lista de Usuarios</ion-title>
+    <ion-button slot="end" (click)="dataToPageHome()"  [routerLink]="['/home']" id="button-home" size="medium"><ion-icon name="home-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list>
+    <ion-item *ngFor="let user of Users">
+      <ion-label>
+        <h2>{{user.name}} {{user.suname}}</h2>
+        <h3>{{user.rut}}</h3>
+        <h3>{{user.email}}</h3>
+        <h3>{{user.username}}</h3>
+        <h3>Profesor: {{user.teacher}}</h3>
+        <h3>Admin: {{user.isAdmin}}</h3>
+      </ion-label>
+
+      <div class="item-note" item-end>
+        <button ion-button clear (click)="dataToEdit(user.id)" [routerLink]="['/update/', user.id]">
+          <ion-icon name="create" style="zoom:1.5" ></ion-icon>
+        </button>
+        <button ion-button clear (click)="removeUser(user)">
+          <ion-icon name="trash" style="zoom:1.5"></ion-icon>
+        </button>
+      </div>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

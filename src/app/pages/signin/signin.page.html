@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Iniciar Sesion</ion-title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
+  </ion-toolbar>
+</ion-header>
+
+<ion-app class="container">
+  <ion-content>
+    <br><br><br><br>
+      <ion-grid fixed="true">
+        <ion-row>
+          <ion-col size="12">
+            <ion-card>
+              <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+                <div class="m-100 h-100 pt-5 bg-light">
+                  <ion-card-header>
+                    <div hidden id="form">{{formulario.valid}}</div>
+                    <div class="p-5">
+                      <img src="./././assets/images/logo.png" width="250" class="rounded mx-auto d-block" alt="">
+                    </div>
+                  </ion-card-header>
+                  <ion-card-content>
+                    <div class="border-bottom border-secondary">
+                      <div class="body">
+                      <div class="form">
+                      <input name="email" [(ngModel)]="usuario.email" type="email" required>
+                        <label class="lbl-nombre"><span class="text-nomb">Email</span></label>
+                      </div>   
+                    </div>
+                    <div class="body">
+                      <div class="form">
+                        <input name="password" [(ngModel)]="usuario.password" type="password" required>
+                        <label class="lbl-pass"><span class="text-pass">Contraseña</span></label>
+                      </div>
+                    </div>
+                      <div class="d-flex justify-content-center">
+                        <button #button [disabled]="formulario.invalid" type="submit" expand="block" (click)="validarForm()" class="shadow-lg border btn btn-warning p-2 mb-3 mt-3 col-5"><span class="text-center text-white fw-bold">INGRESAR</span></button>
+                      </div>
+                    </div>
+                    <div class="d-flex justify-content-center p-5 mb-5">
+                      <a routerLink="/signup"><span class="d-flex m-2 justify-content-start text-decoration-underline">Aun no tengo una cuenta</span></a>
+                      <p class="m-2" >|</p>
+                      <a routerLink="/forgotpass"><span class="d-flex m-2 justify-content-end text-decoration-underline">Olvidé mi contraseña</span></a>
+                    </div>
+                  </ion-card-content>
+                </div>
+              </form>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+  </ion-content>
+  
+</ion-app>

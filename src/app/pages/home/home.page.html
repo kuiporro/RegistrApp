@@ -1,0 +1,102 @@
+<ion-header>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="./././assets/icon/favicon.ico" type="image/x-icon">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</ion-header>
+
+  <ion-content>
+    <ion-menu side="end" content-id="main-content">
+      <ion-header>
+        <ion-toolbar translucent>
+          <ion-title>Opciones</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item (click)="presentAlertExit('Cerrar Sesión','¿Esta seguro que desea cerrar sesión?')" >
+              <ion-icon name="log-out" slot="start"></ion-icon>
+              <ion-label>Cerrar Sesión</ion-label>
+          </ion-item>
+          <ion-item (click)="config()">
+            <ion-icon name="settings" slot="start"></ion-icon>
+            <ion-label>Configuración</ion-label>
+          </ion-item>
+          <ion-item (click)="presentAlertExit('Salir','¿Esta seguro que desea salir?')">
+            <ion-icon name="power" slot="start"></ion-icon>
+            <ion-label>Salir</ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+  
+    <div class="ion-page" id="main-content">
+      <ion-header>
+        <ion-toolbar>
+          <ion-buttons slot="end">
+            <ion-menu-button>
+              <ion-icon name="settings-outline"></ion-icon>
+            </ion-menu-button>
+          </ion-buttons>
+          <div style="margin: 10px ;">
+            <ion-icon  name="home"></ion-icon>
+            <ion-label style="margin-left: 5px ;">Bienvenido {{data.name + " " + data.suname}}</ion-label>
+          </div>
+        </ion-toolbar>
+      </ion-header>
+
+      <ion-card class="col-md-8 m-auto">
+        <ion-card-header class="row">
+          <div class="`col-md-3"> <img src="assets/images/imagenes/image.webp" height="250px" width="250px" alt="" srcset=""></div> 
+        <div class="col-md-5"><h2>{{data.name + " " + data.suname}}</h2>
+          <h4>Plaza Oeste</h4></div>
+      </ion-card-header>
+        <ion-card-content  >
+          <img   style="margin-right: 10px;" src="assets/images/logo.png" height="50px" width="200px" class="m-auto" alt="Imagen no">
+        </ion-card-content>
+      </ion-card>
+    
+    </div>
+
+
+</ion-content  >
+
+
+
+<ion-footer>
+<ion-toolbar>
+<ion-tabs>
+<ion-tab-bar slot="bottom">
+  <ion-tab-button *ngIf="data.teacher === 'true';" (click)="dataToPage('subcreate')" routerLinkActive="tab-selected" routerLink="/subcreate">
+    <ion-icon name="add-circle-outline"></ion-icon>
+    <ion-label>Crear Asignaturas</ion-label>
+  </ion-tab-button>
+   <ion-tab-button *ngIf="data.teacher !== 'true';" (click)="QRData()">
+      <ion-icon name="scan-outline"></ion-icon>
+      <ion-label>Scan QR</ion-label>
+    </ion-tab-button> -
+  <ion-tab-button (click)="dataToPage('profile')">
+    <ion-icon name="person-outline"></ion-icon>
+    <ion-label>Perfil</ion-label>
+  </ion-tab-button>
+  <ion-tab-button *ngIf="data.teacher !== 'true';" (click)="dataToPage('sublist')" routerLinkActive="tab-selected" routerLink="/sublist">
+    <ion-icon name="reorder-four-outline"></ion-icon>
+    <ion-label>Asignaturas</ion-label>
+  </ion-tab-button>  
+  <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPage('list')" routerLinkActive="tab-selected" routerLink="/list">
+    <ion-icon name="list-outline"></ion-icon>
+    <ion-label>Lista Usuarios</ion-label>
+  </ion-tab-button>
+  <ion-tab-button *ngIf="data.isAdmin === 'true';" (click)="dataToPage('create')" routerLinkActive="tab-selected" routerLink="/create">
+    <ion-icon name="person-outline"></ion-icon>
+  <ion-label>Añadir Usuario</ion-label>
+  </ion-tab-button>
+  <ion-tab-button *ngIf="data.teacher === 'true';" (click)="dataToPage('sublist')" routerLinkActive="tab-selected" routerLink="/sublist">
+    <ion-icon name="list-circle-outline"></ion-icon>
+    <ion-label>Asignaturas</ion-label>
+  </ion-tab-button>
+</ion-tab-bar>
+</ion-tabs>
+</ion-toolbar>
+</ion-footer>

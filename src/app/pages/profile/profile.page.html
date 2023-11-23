@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Perfil de {{ data.name }}</ion-title>
+    <ion-button slot="end" (click)="dataToPageHome()"  [routerLink]="['/home']" id="button-home" size="medium"><ion-icon name="home-outline"></ion-icon></ion-button>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div id="container">
+    <h1 id="Welcome"><strong></strong></h1>
+    <ion-list class="ion-no-margin">
+
+      <ion-item>
+        <h2>Datos Personales</h2>
+      </ion-item>
+
+      <ion-item>
+        <p> Nombre: <strong>{{data.rut}}</strong></p>
+      </ion-item>
+
+      <ion-item>
+        <p> Nombre: <strong>{{data.name}}</strong></p>
+      </ion-item>
+
+      <ion-item>
+        <p> Apellido: <strong>{{data.suname}}</strong></p>
+      </ion-item>
+      
+      <ion-item>
+        <p> Nombre de usuario: <strong>{{data.username}}</strong></p>
+      </ion-item>
+      
+      <ion-item>
+        <p> Email: <strong>{{data.email}}</strong></p>
+      </ion-item>
+
+      <ion-item *ngIf="data.teacher === 'true';">
+        <p> ¿Es Profesor?: <strong>{{data.teacher}}</strong></p>
+      </ion-item>
+
+
+      <section>
+        <ion-button (click)="dataToPageEdit()" id="editInformation" size="medium"><strong>Editar información</strong></ion-button>
+      </section>
+
+      <section>
+        <ion-button [routerLink]="['']" id="button-SignOut" size="medium" color="danger" ><strong>Cerrar Sesión</strong></ion-button>
+      </section>
+
+    </ion-list>
+  </div>
+</ion-content>

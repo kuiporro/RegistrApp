@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button slot="end" (click)="dataToPage('sublist')"  [routerLink]="['/home']" id="button-home" size="large"><ion-icon name="arrow-back-outline"></ion-icon></ion-button>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <ion-title>Asistencia QR </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="text-center">
+  <h1 class="p-3 fw-bold">Asistencia QR {{name}} {{teacher}}</h1>
+  <h3 class="fw-semibold">{{code}}</h3>
+  <ngx-qrcode
+  [elementType]="elementType"
+  [errorCorrectionLevel]="correctionLevel"
+  [value]="value"
+  cssClass="bshadow"></ngx-qrcode>
+  <h3 class="mt-4 fw-semibold text-secondary">Fecha: {{date}}</h3>
+  <h4 class="fw-semibold text-info">Localizacion: </h4>
+  <h5 class="fw-semibold text-info">Latitud: {{latitude}}</h5>
+  <h5 class="fw-semibold text-info">Longitud: {{longitude}}</h5>
+</ion-content>

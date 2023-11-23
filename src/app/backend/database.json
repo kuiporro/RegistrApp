@@ -1,0 +1,114 @@
+{
+  "usuarios": [
+    {
+      "rut": "20472680-9",
+      "name": "Diego",
+      "suname": "Alvarez",
+      "username": "Daigo",
+      "email": "dr.alvarez@duocuc.cl",
+      "password": "qwer1234",
+      "isAdmin": "true",
+      "teacher": "true",
+      "id": "mG8Vg_3"
+    },
+    {
+      "rut": "20636998-1",
+      "name": "Luis",
+      "suname": "Diaz",
+      "username": "koipo",
+      "email": "luis@gmail.com",
+      "password": "qwer1234",
+      "isAdmin": "true",
+      "teacher": "true",
+      "id": "KJzhpX3"
+    },
+    {
+      "rut": "21313407-8",
+      "name": "david",
+      "suname": "diaz",
+      "username": "daviddi",
+      "email": "david@gmail.com",
+      "password": "xdxdxd",
+      "isAdmin": "false",
+      "teacher": "false",
+      "id": "5bPqjSP"
+    },
+    {
+      "rut": "20820103-4",
+      "name": "pedro",
+      "suname": "pascal",
+      "username": "pedrito123",
+      "email": "peddro@gmail.com",
+      "password": "qwer1234",
+      "isAdmin": "false",
+      "teacher": "true",
+      "id": "BDYccLF"
+    }
+  ],
+  "subjects": [
+    {
+      "name": "Programacion Movil",
+      "teachersId": "aQANNzE",
+      "teachersName": "Fabian Carvacho",
+      "code": "PGY4121",
+      "days": [
+        "Miercoles 08:31-10:40 205",
+        "Viernes 10:01-11:20 202"
+      ],
+      "id": "1"
+    },
+    {
+      "name": "Arquitectura",
+      "teachersId": "CnsF2s",
+      "teachersName": "Magdalena Nieto",
+      "code": "ASY4131",
+      "days": [
+        "Jueves 08:31-10:40 201",
+        "Viernes 08:31-09:50 203"
+      ],
+      "id": "2"
+    },
+    {
+      "name": "Calidad de Software",
+      "code": "CSY4111",
+      "teachersId": "aQANNzE",
+      "teachersName": "Fabian Carvacho",
+      "days": [
+        "Lunes 08:31-11:20 202"
+      ],
+      "id": "M7D5vSG"
+    },
+    {
+      "name": "Estadistica Descriptiva",
+      "code": "MAT4140",
+      "teachersId": "aQANNzE",
+      "teachersName": "Fabian Carvacho",
+      "days": [
+        "Lunes 11:31-12:50 208",
+        "Martes 08:31-09:50 204"
+      ],
+      "id": "Mbhpk5I"
+    },
+    {
+      "name": "progra web",
+      "code": "12312231",
+      "teachersId": "5bPqjSP",
+      "teachersName": "david diaz",
+      "days": [
+        "Miercoles 03:54-05:54 123",
+        "Viernes 01:58-06:54 123"
+      ],
+      "id": "VDjyByr"
+    },
+    {
+      "name": "1313",
+      "code": "123131",
+      "teachersId": "5bPqjSP",
+      "teachersName": "david diaz",
+      "days": [
+        "Miercoles 01:59-01:01 123"
+      ],
+      "id": "es8ZqeQ"
+    }
+  ]
+}

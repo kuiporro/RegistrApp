@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Update Subject</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <ion-list lines="full">
+    <form [formGroup]="updateSubjectFgRaw" (ngSubmit)="onSubmit()">
+      
+      <ion-item>
+        <ion-label position="floating">Nombre Asignatura</ion-label>
+        <ion-input formControlName="name" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Codigo Asignatura</ion-label>
+        <ion-input formControlName="code" type="text" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Numero de dias</ion-label>
+        <ion-input formControlName="dayNumber" type="text" required></ion-input>
+      </ion-item>
+
+      <div *ngIf="daysNumber >= 1;">
+        <ion-list *ngFor="let number of numberCollection">
+          <ion-item>
+            <h4>Dia {{number+1}}</h4>
+            <ion-select formControlName="weekDay{{number+1}}" placeholder="Dia">
+              <ion-select-option value="Lunes">Lunes</ion-select-option>
+              <ion-select-option value="Martes">Martes</ion-select-option>
+              <ion-select-option value="Miercoles">Miercoles</ion-select-option>
+              <ion-select-option value="Jueves">Jueves</ion-select-option>
+              <ion-select-option value="Viernes">Viernes</ion-select-option>
+              <ion-select-option value="Sabado">Sabado</ion-select-option>
+            </ion-select>
+            <ion-label position="floating">Desde Las</ion-label>
+            <ion-input type="time" formControlName="start{{number+1}}" required></ion-input>
+            <ion-label position="floating">Hasta Las</ion-label>
+            <ion-input type="time" formControlName="end{{number+1}}" required></ion-input>
+            <ion-label position="floating">Sala Dia</ion-label>
+            <ion-input type="number" formControlName="room{{number+1}}" required></ion-input>   
+          </ion-item>
+        </ion-list>
+    </div>
+    
+      <ion-row>
+
+        <ion-col>
+          <ion-button (click)="genForm()" color="warning" class="mb-5" expand="block">Definir Dias</ion-button>
+        </ion-col>
+
+        <ion-col *ngIf="daysNumber >= 1;">
+          <ion-button type="submit" color="success" expand="block">Update</ion-button>
+        </ion-col>
+      </ion-row>
+      
+    </form>
+  </ion-list>
+</ion-content>
